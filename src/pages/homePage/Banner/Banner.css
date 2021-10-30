@@ -1,0 +1,6 @@
+.banner{
+    background-image: url('../../../images/banner.jpeg');
+    height: 650px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
