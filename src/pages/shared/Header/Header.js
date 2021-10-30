@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Header = () => {
-    // const { user, logOut, setUser } = useAuth();
+    const { user, logOut, setUser } = useAuth();
     const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-    // const handleLogOut = () => {
-    //     logOut();
-    //     setUser(null);
-    // }
+    const handleLogOut = () => {
+        logOut();
+        setUser(null);
+    }
 
     return (
         <div className=" md:w-full top-0">
@@ -46,31 +47,30 @@ const Header = () => {
                                     <span className="ml-2">Home</span>
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
-                                    to="/about/journey"
-                                >
-                                    <span className="ml-2">About Us</span>
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
-                                    to="/services"
-                                >
-                                    <span className="ml-2">Services</span>
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
-                                    to="/healthnews"
-                                >
-                                    <span className="ml-2">Health News</span>
-                                </NavLink>
-                            </li>
-                            {/* {
+                            {
+                                user &&
+                                <li className="nav-item">
+                                    <NavLink
+                                        className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
+                                        to="/myorders"
+                                    >
+                                        <span className="ml-2">My Orders</span>
+                                    </NavLink>
+                                </li>
+
+
+                            }
+                            {
+                                user && <li className="nav-item">
+                                    <NavLink
+                                        className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
+                                        to="/manageorders"
+                                    >
+                                        <span className="ml-2">Manage Orders</span>
+                                    </NavLink>
+                                </li>
+                            }
+                            {
                                 !user ?
                                     <li className="nav-item">
                                         <NavLink
@@ -90,7 +90,7 @@ const Header = () => {
                                             <span className="ml-2">Sign Out <span className=" "> ({user?.displayName})</span> </span>
                                         </NavLink>
                                     </li>
-                            } */}
+                            }
 
                         </ul>
                     </div>

@@ -7,6 +7,7 @@ import Home from './pages/homePage/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import ContextProvider from './context/ContextProvider/ContextProvider';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -26,6 +27,18 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/myorders">
+
+            </Route>
+            <Route path="/manageorders">
+
+            </Route>
+            <Route path="/placeorder/:id">
+              <PlaceOrder></PlaceOrder>
+            </Route>
+            <Route path="*">
+              <h2>Not Found</h2>
             </Route>
           </Switch>
           <Footer></Footer>

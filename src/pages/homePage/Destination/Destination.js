@@ -1,7 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const Destination = (props) => {
     const { name, img, price, details, _id, location } = props.destination;
+    const history = useHistory();
+
+    const handleBooknow = () => {
+        history.push(`/placeorder/${_id}`);
+    }
     return (
         <div>
             <section>
@@ -15,7 +21,7 @@ const Destination = (props) => {
                 <h4 className="text-xs font-light "><i class="fas fa-map-marker"></i> {location}</h4>
                 <h4 className="text-gray-700">{details.slice(0, 100)}...</h4>
                 <div className="text-center ">
-                    <button className="text-center px-6 py-2 text-yellow-400 hover:bg-yellow-300 hover:text-white border-gray-400 border">Book Now</button>
+                    <button onClick={handleBooknow} className="text-center px-6 py-2 text-yellow-400 hover:bg-yellow-300 hover:text-white border-gray-400 border">Book Now</button>
                 </div>
             </article>
 
