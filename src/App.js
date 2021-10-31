@@ -8,6 +8,8 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import ContextProvider from './context/ContextProvider/ContextProvider';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import MyOrders from './pages/MyOrders/MyOrders';
+import ManageOrders from './pages/ManageOrders/ManageOrders';
 
 function App() {
   return (
@@ -28,14 +30,14 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/myorders">
-
-            </Route>
             <Route path="/manageorders">
-
+              <ManageOrders></ManageOrders>
             </Route>
             <Route path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>
+            </Route>
+            <Route path="/myorders">
+              <MyOrders></MyOrders>
             </Route>
             <Route path="*">
               <h2>Not Found</h2>

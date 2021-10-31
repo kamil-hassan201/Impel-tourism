@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
-import useFirebase from '../../hooks/useFirebase';
-
 
 const PlaceOrder = () => {
     const id = useParams();
     const { user } = useAuth();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const history = useHistory();
+
     const [destination, setDestination] = useState({});
     const uri = `http://localhost:5000/destinations/${id.id}`;
 
@@ -18,6 +17,24 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data => setDestination(data))
     }, [])
+    //Handle Confirm Booking
+    const onSubmit = data => {
+        data.order = destination._id;
+        fetch('http://localhost:5000/orders', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert("Your Order is Confirmed. Thank You");
+                    history.push('/myorders');
+                }
+            })
+    };
     return (
         <div >
             <h1 className="mt-8 text-center font-serif text-4xl font-bold">Book Your Order</h1>
@@ -31,9 +48,10 @@ const PlaceOrder = () => {
                         <input placeholder="Address" className="border p-2 mx-auto border-gray-400 w-80 h-10" defaultValue="" {...register("adress", { required: true })} />
                         <input placeholder="Phone Number " className="border p-2 mx-auto border-gray-400 w-80 h-10" defaultValue="" {...register("phoneNumber")} />
 
-                        <input className="border mx-auto bg-yellow-400 text-white w-80 h-10" type="submit" value="Confirm Booking" />
+                        <input className="border mx-auto hover:shadow-lg bg-yellow-400 text-white w-80 h-10" type="submit" value="Confirm Booking" />
                     </form>
                 </section>
+
                 <section className="w-3/5 flex my-auto">
                     <div>
                         <img className="rounded-md" src={destination.img} alt="" />
