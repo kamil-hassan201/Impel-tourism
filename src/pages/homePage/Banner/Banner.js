@@ -1,5 +1,7 @@
 import React from 'react';
 import './Banner.css';
+import { HashLink } from 'react-router-hash-link';
+
 
 const Banner = () => {
     return (
@@ -10,7 +12,7 @@ const Banner = () => {
                     We provide travelers with an authentic Jordanian experience that they
                     can remember for the rest of their lives
                 </p>
-                <button className="border text-white mt-10 hover:bg-yellow-300 border-gray-400 px-8 py-3">Explore Places</button>
+                <HashLink to="/home/#destinations"><button className="border text-white mt-10 hover:bg-yellow-300 border-gray-400 px-8 py-3">Explore Places</button></HashLink>
             </div>
         </div>
     );

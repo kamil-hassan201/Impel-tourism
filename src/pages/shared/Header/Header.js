@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { HashLink } from 'react-router-hash-link';
+
 
 
 const Header = () => {
@@ -13,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <div className=" md:w-full top-0">
+        <div className=" md:w-full top-0 fixed">
             <nav className=" relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-100 text-black ">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -47,6 +49,14 @@ const Header = () => {
                                     <span className="ml-2">Home</span>
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <HashLink
+                                    className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
+                                    to="/home/#destinations"
+                                >
+                                    <span className="ml-2">Tour Destinations</span>
+                                </HashLink>
+                            </li>
                             {
                                 user &&
                                 <li className="nav-item">
@@ -60,6 +70,7 @@ const Header = () => {
 
 
                             }
+
                             {
                                 user && <li className="nav-item">
                                     <NavLink
@@ -69,6 +80,19 @@ const Header = () => {
                                         <span className="ml-2">Manage Orders</span>
                                     </NavLink>
                                 </li>
+                            }
+                            {
+                                user &&
+                                <li className="nav-item">
+                                    <NavLink
+                                        className="px-3 py-2 flex items-center text-xs uppercase    leading-snug   hover:opacity-75"
+                                        to="/adddestinations"
+                                    >
+                                        <span className="ml-2">Add Destinations</span>
+                                    </NavLink>
+                                </li>
+
+
                             }
                             {
                                 !user ?

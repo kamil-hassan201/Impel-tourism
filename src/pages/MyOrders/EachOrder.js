@@ -32,7 +32,7 @@ const EachOrder = (props) => {
 
                 </article>
                 <div className=" w-1/2">
-                    <img className={props.cl == "all" ? "rounded-lg mx-auto my-auto w-3/4" : "rounded-lg mx-auto my-auto w-3/5"} src={img} alt="" />
+                    <img className={props.cl == "all" ? "rounded-lg mx-auto my-auto w-2/4" : "rounded-lg mx-auto my-auto w-3/5"} src={img} alt="" />
                 </div>
 
             </div>

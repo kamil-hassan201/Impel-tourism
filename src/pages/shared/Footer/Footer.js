@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+
 
 const Footer = () => {
     return (
@@ -9,10 +11,9 @@ const Footer = () => {
                     <ul
                         className=" self-center py-6 space-y-4 font-light text-center md:space-x-8 sm:flex sm:space-y-0 sm:justify-around sm:space-x-4 lg:flex-1 lg:justify-start">
                         <li><Link to="/home">Home</Link></li>
-                        <li><Link to="/about/journey">About Us</Link></li>
-                        <li><Link to="/services">Services</Link></li>
-                        <li><Link to="/healthnews">Health News</Link></li>
                         <li><Link to="/signin">Sign in</Link></li>
+                        <li> <HashLink to="/home/#destinations">Destinations</HashLink> </li>
+                        <li> <HashLink to="/home/#reviews">Reviews</HashLink> </li>
 
                     </ul>
                     <div className="flex flex-col justify-center pt-6 lg:pt-0">
@@ -24,7 +25,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                {/* <p className="text-center pb-4"><small className=""> &copy; Impel Language Course</small></p> */}
+
             </footer>
         </div >
     );

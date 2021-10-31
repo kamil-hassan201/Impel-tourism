@@ -10,6 +10,8 @@ import ContextProvider from './context/ContextProvider/ContextProvider';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import MyOrders from './pages/MyOrders/MyOrders';
 import ManageOrders from './pages/ManageOrders/ManageOrders';
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
+import AddDestinations from './pages/AddDestinations/AddDestinations';
 
 function App() {
   return (
@@ -30,15 +32,18 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/manageorders">
+            <PrivateRoute path="/manageorders">
               <ManageOrders></ManageOrders>
-            </Route>
-            <Route path="/placeorder/:id">
+            </PrivateRoute>
+            <PrivateRoute path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>
-            </Route>
-            <Route path="/myorders">
+            </PrivateRoute>
+            <PrivateRoute path="/myorders">
               <MyOrders></MyOrders>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/adddestinations">
+              <AddDestinations></AddDestinations>
+            </PrivateRoute>
             <Route path="*">
               <h2>Not Found</h2>
             </Route>
