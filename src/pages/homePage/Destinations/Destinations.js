@@ -6,7 +6,7 @@ const Destinations = () => {
     const [destinationLoading, setDesinationLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/destinations')
+        fetch('https://howling-dracula-23278.herokuapp.com/destinations')
             .then(res => res.json())
             .then(data => {
                 setDestinations(data);
@@ -23,7 +23,7 @@ const Destinations = () => {
             <h3 className="text-3xl text-center font-mono my-8" >Top Destinations</h3>
             <hr className="w-1/4 mx-auto mb-8" />
 
-            <section className="grid grid-cols-3 gap-12 mx-20">
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-12 mx-4 md:mx-20">
                 {
                     destinations.map(d => <Destination
                         key={d._id}

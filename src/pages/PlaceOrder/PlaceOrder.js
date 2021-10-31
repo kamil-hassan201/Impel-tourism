@@ -10,7 +10,7 @@ const PlaceOrder = () => {
     const history = useHistory();
 
     const [destination, setDestination] = useState({});
-    const uri = `http://localhost:5000/destinations/${id.id}`;
+    const uri = `https://howling-dracula-23278.herokuapp.com/destinations/${id.id}`;
 
     useEffect(() => {
         fetch(uri)
@@ -21,7 +21,7 @@ const PlaceOrder = () => {
     const onSubmit = data => {
         data.order = destination._id;
         data.status = "pending";
-        fetch('http://localhost:5000/orders', {
+        fetch('https://howling-dracula-23278.herokuapp.com/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -40,8 +40,8 @@ const PlaceOrder = () => {
         <div >
             <h1 className="mt-8 text-center font-serif text-4xl font-bold">Book Your Order</h1>
             <hr className="w-1/3 mx-auto mt-10" />
-            <div className="mr-8 flex">
-                <section className="w-2/5 my-24 ">
+            <div className="mr-8 md:flex">
+                <section className="md:w-2/5 my-24 ">
                     <form className="flex flex-col space-y-6" onSubmit={handleSubmit(onSubmit)}>
 
                         <input className="border p-2 mx-auto border-gray-400 w-80 h-10" placeholder="Name" defaultValue={user?.displayName} {...register("name")} />
@@ -53,11 +53,11 @@ const PlaceOrder = () => {
                     </form>
                 </section>
 
-                <section className="w-3/5 flex my-auto">
-                    <div>
-                        <img className="rounded-md" src={destination.img} alt="" />
+                <section className="md:w-3/5 md:flex my-auto p-4 md:p-0 space-y-4">
+                    <div className="text-center">
+                        <img className="rounded-lg mx-auto" src={destination.img} alt="" />
                     </div>
-                    <article className="my-auto space-y-4 pl-8">
+                    <article className="my-auto space-y-4 md:pl-8">
                         <h1 className="font-bold text-2xl font-mono">{destination.name}</h1>
                         <h1 className="font-bold text-yellow-500 text-xl font-mono">${destination.price} /Night</h1>
                         <p className="font-serif">{destination.details}</p>

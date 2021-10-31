@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <div className=" md:w-full top-0 fixed">
+        <div className=" md:w-full w-full top-0 fixed">
             <nav className=" relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-100 text-black ">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">

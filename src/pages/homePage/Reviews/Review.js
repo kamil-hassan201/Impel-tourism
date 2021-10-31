@@ -4,8 +4,8 @@ const Review = (props) => {
     const { Name, img, comment } = props.review;
     return (
         <div>
-            <div>
-                <img className="rounded-full" src={img} alt="" />
+            <div className="text-center">
+                <img className="rounded-full mx-auto" src={img} alt="" />
             </div>
             <article>
                 <h5 className="text-yellow-500 my-7 text-center text-xl">{Name}</h5>

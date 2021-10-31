@@ -8,7 +8,7 @@ const AddDestinations = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const history = useHistory();
     const onSubmit = data => {
-        fetch('http://localhost:5000/adddestinations/', {
+        fetch('https://howling-dracula-23278.herokuapp.com/adddestinations/', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
