@@ -2,7 +2,22 @@ import React, { Children } from 'react';
 
 const EachOrder = (props) => {
     const { img, name, price, details, _id, location } = props.myorder;
-    console.log(props.children);
+    const { userName } = props;
+    // console.log(props.children);
+    const handleRemoveBooking = () => {
+        const proceed = window.confirm("Remove the order?")
+        if (proceed) {
+            fetch(`http://localhost:5000/allorders?id=${_id}&&customerName=${userName}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        window.location.reload();
+                    }
+                })
+        }
+    }
     return (
         <div>
             <div className="flex">
@@ -13,7 +28,7 @@ const EachOrder = (props) => {
                     {props.children}
 
                     <p className="font-serif text-sm"><i class="fas fa-map-marker"></i> {location}</p>
-                    <button className="py-2 px-4 border border-white bg-red-400 hover:bg-red-600 text-white rounded-lg">Remove Booking</button>
+                    <button onClick={handleRemoveBooking} className="py-2 px-4 border border-white bg-red-400 hover:bg-red-600 text-white rounded-lg">Remove Booking</button>
 
                 </article>
                 <div className=" w-1/2">

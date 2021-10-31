@@ -20,11 +20,12 @@ const MyOrders = () => {
     console.log(myorders);
     return (
         <div>
-            <h3 className="text-3xl text-center font-mono my-8" >My Bookings</h3>
+            <h3 className="text-3xl text-center font-mono mt-8" >My Bookings</h3>
+            <p className="text-center text-yellow-500"><small>{user?.displayName?.toUpperCase()}</small></p>
             <hr className="w-1/4 mx-auto mb-8" />
             <div className="grid grid-cols-1 gap-20 mx-40">
                 {
-                    myorders.map(mo => <EachOrder key={mo._id} cl="all" myorder={mo}>
+                    myorders.map(mo => <EachOrder key={mo._id} cl="all" userName={user.displayName} myorder={mo}>
                         <p className="font-serif">{mo.details}</p>
                     </EachOrder>)
                 }

@@ -20,6 +20,7 @@ const PlaceOrder = () => {
     //Handle Confirm Booking
     const onSubmit = data => {
         data.order = destination._id;
+        data.status = "pending";
         fetch('http://localhost:5000/orders', {
             method: "POST",
             headers: {

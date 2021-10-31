@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import EachOrder from '../MyOrders/EachOrder';
+import AllOrder from './AllOrder';
 
 const ManageOrders = () => {
     const [allorders, setAllorders] = useState([]);
@@ -15,9 +16,11 @@ const ManageOrders = () => {
             <hr className="w-1/3 mx-auto mb-16" />
             <div className="grid grid-cols-1 gap-20 mx-40">
                 {
-                    allorders.map(od => <EachOrder key={od._id} myorder={od}>
-                        <h3>Booked By: {od.orderedBy}</h3>
-                    </EachOrder>)
+                    allorders.map(od => <AllOrder
+                        key={od._id}
+                        myorder={od}>
+
+                    </AllOrder>)
                 }
             </div>
         </div>
